@@ -1,0 +1,19 @@
+name: AutoDeploy CI/CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'main'
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deployment
+        run: |
+          echo "Deploying branch: ${{ github.event.inputs.branch }}"
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
