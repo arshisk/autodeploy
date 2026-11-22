@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<h1>Hello from AutoDeploy</h1><p>Version 1 - deployed automatically via CI/CD.</p>"
+    return "<h1>Hello from AutoDeploy</h1><p>Version 2 - deployed automatically via CI/CD.</p>"
 
 @app.route("/health")
 def health():
